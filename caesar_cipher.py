@@ -1,34 +1,34 @@
-
-
-FIRST_CHAR_CODE = ord(' ')
-LAST_CHAR_CODE = ord('~')
-CHAR_RANGE = LAST_CHAR_CODE - FIRST_CHAR_CODE
+# Use printable ASCII characters for Caesar shift. Not limiting to alpha characters
+LAST_CHAR_CODE = ord('~') # 126
 
 # shifts the ASCII/Unicode value of each character in a message by the given key
-def caesar_shift(message, key): 
-    print('first: ', FIRST_CHAR_CODE, ' last: ',LAST_CHAR_CODE, ' range: ', CHAR_RANGE)
-    shifted_message = ''
-    for ch in message:
-        new_ch = (ord(ch) + key) % LAST_CHAR_CODE
-        #new_ch = ord(ch) + key
-        #if new_ch > LAST_CHAR_CODE:
-        #    new_ch -= CHAR_RANGE
-        #elif new_ch < FIRST_CHAR_CODE:
-        #    new_ch += CHAR_RANGE
-        print('ch: ',ch,ord(ch),' new_ch: ',chr(new_ch),new_ch)
-        shifted_message += chr(new_ch)
-    return shifted_message
+# keep characters in the printable range
+def caesar_shift(message, key):
+    return ''.join(chr((ord(ch) + key) % (LAST_CHAR_CODE + 1)) for ch in message)
 
 # Use the Caesar shift function to encrpyt, then decrypt a message with a given key
 def main():
-    message = input('Enter message: ')
+    print('Module 3: Assignment - Secure Hashing and Encryption')
+    print('Caesar Cipher App')
+    print('Enter a message and then a key.')
+
+    message = input('\nEnter message: ')
     key = int(input('Enter key: '))
+
+    # encrypt message with key value
     ciphertext = caesar_shift(message, key)
+    
+    print('\nMessage encrypted!')
     print('Cipher text:', ciphertext)
 
+    print('\nEnter the same key to decrypt the the ciphertext.')
     key = int(input('Enter key: '))
-    print(caesar_shift(ciphertext, -key))
-    return
+
+    # negate key input to decrypt
+    decrypted_message = caesar_shift(ciphertext, -key)
+    
+    print('\nMessage decrypted!')
+    print('Message: ', decrypted_message)
 
 # execute main function
 if __name__ == '__main__':
