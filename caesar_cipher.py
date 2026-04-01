@@ -6,14 +6,19 @@ LAST_CHAR_CODE = ord('~') # 126
 def caesar_shift(message, key):
     return ''.join(chr((ord(ch) + key) % (LAST_CHAR_CODE + 1)) for ch in message)
 
+# check if string is an integer
+# TODO
+
 # Use the Caesar shift function to encrpyt, then decrypt a message with a given key
+# Use key as-is to encrypt
+# Negate key input to decrypt
 def main():
     print('Module 3: Assignment - Secure Hashing and Encryption')
     print('Caesar Cipher App')
     print('Enter a message and then a key.')
 
     message = input('\nEnter message: ')
-    key = int(input('Enter key: '))
+    key = int(input('Enter key: ')) # TODO Make this safer
 
     # encrypt message with key value
     ciphertext = caesar_shift(message, key)
