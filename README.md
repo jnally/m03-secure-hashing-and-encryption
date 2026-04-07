@@ -10,7 +10,7 @@
 ## How to Run the Code
 * **Caesar Cipher App:** Run `python caesar_cipher.py` in the terminal and follow the prompts to enter your message and key.
 * **Generate SHA-256 App:** Run `python sha256_hashing.py` in the terminal and choose the menu option to hash either text or a file.
-* **Digital Signatures (OpenSSL on command line):** Please refer to the included screenshot for the `Verified OK` terminal output, demonstrating the `genrsa`, `rsa`, `dgst -sign`, and `dgst -verify` commands. See bash commands below:
+* **Digital Signatures (OpenSSL on command line):** Please refer to the included screenshot for the `Verified OK` terminal output, demonstrating the `genrsa`, `rsa`, `dgst -sign`, and `dgst -verify` commands. I ran into an issue with the example website's commands and had to look up another way. See bash commands below:
 
 ```bash
 echo "This is my secret." > secret.txt
@@ -18,4 +18,4 @@ openssl genrsa -out privkey.pem 2048
 openssl rsa -in privkey.pem -pubout -out pubkey.pem
 openssl dgst -sha256 -sign privkey.pem -out sign.sha256 secret.txt
 openssl dgst -sha256 -verify pubkey.pem -signature sign.sha256 secret.txt
-
+```
