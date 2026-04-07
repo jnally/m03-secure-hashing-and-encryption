@@ -19,3 +19,7 @@ openssl rsa -in privkey.pem -pubout -out pubkey.pem
 openssl dgst -sha256 -sign privkey.pem -out sign.sha256 secret.txt
 openssl dgst -sha256 -verify pubkey.pem -signature sign.sha256 secret.txt
 ```
+
+## Recording for Module 3: Assignment - Secure Hashing and Encryption
+Link: https://www.youtube.com/watch?v=JbaLAk0dnTU
+[![Recording for Module 3: Assignment - Secure Hashing and Encryption](https://img.youtube.com/vi/JbaLAk0dnTU/maxresdefault.jpg)](https://www.youtube.com/watch?v=JbaLAk0dnTU)
